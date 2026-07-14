@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Murtadha Kabiru Maikudi | Developer Portfolio</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: #fafafa;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            background: #ffffff;
+            color: #222;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: #111;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #444;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .nav-home {
+            color: #2563eb !important;
+            font-weight: 600;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            background: none;
+            border: none;
+            color: #222;
+            cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        #home {
+            scroll-margin-top: 80px;
+        }
+
+        header {
+            background: #ffffff;
+            color: #222;
+            padding: 90px 0 70px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .hero-text h1 {
+            font-size: 44px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .highlight {
+            color: #2563eb;
+            position: relative;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: #2563eb;
+            opacity: 0.15;
+            border-radius: 4px;
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .bio {
+            font-size: 17px;
+            color: #555;
+            margin-bottom: 28px;
+            max-width: 450px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-outline {
+            border: 2px solid #2563eb;
+            color: #2563eb;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: #2563eb;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            flex: 0 0 170px;
+            text-align: center;
+        }
+
+        /* ===== AVATAR WITH IMAGE ===== */
+        .avatar-placeholder {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            border: 3px solid #2563eb;
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.12);
+            transition: 0.3s;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f4ff;
+        }
+
+        .avatar-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .avatar-placeholder:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.18);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 75px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 45px;
+            position: relative;
+            color: #111;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: #2563eb;
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+
+        /* ===== ABOUT ===== */
+        #about {
+            background: #f8faff;
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 17px;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 16px;
+        }
+
+        /* ===== EDUCATION ===== */
+        #education {
+            background: #ffffff;
+        }
+
+        .edu-item {
+            max-width: 700px;
+            margin: 0 auto 20px;
+            text-align: center;
+            font-size: 17px;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        .edu-item strong {
+            color: #111;
+        }
+
+        .edu-item .sub {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* ===== SKILLS (with bars) ===== */
+        #skills {
+            background: #f8faff;
+        }
+
+        .skills-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .skill-row {
+            margin-bottom: 20px;
+        }
+
+        .skill-row .label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+            color: #222;
+            margin-bottom: 4px;
+        }
+
+        .skill-bar-bg {
+            width: 100%;
+            height: 10px;
+            background: #e0e7f5;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background: #2563eb;
+            border-radius: 50px;
+            transition: width 0.6s ease;
+        }
+
+        /* ===== PROJECTS OVERVIEW ===== */
+        #projects {
+            background: #ffffff;
+        }
+
+        .projects-intro {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: #555;
+            font-size: 17px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #f8faff;
+            padding: 32px 26px;
+            border-radius: 20px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border: 1px solid #f0f4ff;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(37, 99, 235, 0.08);
+            border-color: #2563eb30;
+        }
+
+        .project-icon {
+            font-size: 44px;
+            margin-bottom: 14px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+            color: #111;
+            font-size: 20px;
+        }
+
+        .project-card p {
+            color: #555;
+            font-size: 15px;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .tech-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .tech-tags span {
+            background: #e8edf9;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            color: #222;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .project-links a {
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .project-links a:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        /* ===== CASE STUDY SECTIONS ===== */
+        .case-study {
+            background: #f8faff;
+        }
+
+        .case-study .container {
+            max-width: 750px;
+        }
+
+        .case-study h3 {
+            font-size: 22px;
+            color: #111;
+            margin: 30px 0 8px;
+        }
+
+        .case-study h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .case-study p {
+            color: #444;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .case-study ul {
+            padding-left: 25px;
+            margin-bottom: 16px;
+            color: #444;
+        }
+
+        .case-study ul li {
+            margin-bottom: 6px;
+        }
+
+        /* ===== CERTIFICATES ===== */
+        #certificates {
+            background: #ffffff;
+        }
+
+        .cert-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: #f8faff;
+            padding: 30px 26px;
+            border-radius: 20px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            flex: 1 1 260px;
+            max-width: 320px;
+            border: 1px solid #f0f4ff;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(37, 99, 235, 0.08);
+            border-color: #2563eb30;
+        }
+
+        .cert-icon {
+            font-size: 44px;
+            margin-bottom: 12px;
+        }
+
+        .cert-card h3 {
+            font-size: 19px;
+            color: #111;
+            margin-bottom: 8px;
+        }
+
+        .cert-card p {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .cert-link {
+            display: inline-block;
+            background: #2563eb;
+            color: #fff;
+            padding: 8px 26px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
+        }
+
+        .cert-link:hover {
+            background: #1d4ed8;
+            transform: scale(1.03);
+        }
+
+        .cert-link.in-progress {
+            background: #e8edf9;
+            color: #444;
+            box-shadow: none;
+        }
+
+        .cert-link.in-progress:hover {
+            background: #d5dff0;
+            transform: scale(1.03);
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        #testimonials {
+            background: #f8faff;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            padding: 30px 24px;
+            border-radius: 20px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border-left: 5px solid #2563eb;
+        }
+
+        .testimonial-card .quote {
+            font-style: italic;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .testimonial-card .author {
+            margin-top: 16px;
+            font-weight: 600;
+            color: #111;
+        }
+
+        .testimonial-card .role {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* ===== AUDIO & VIDEO SECTION ===== */
+        #media {
+            background: #f8faff;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .media-card {
+            background: #ffffff;
+            padding: 30px 28px;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f0f4ff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .media-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.08);
+        }
+
+        .media-card h3 {
+            font-size: 20px;
+            color: #111;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .media-card .media-desc {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        .media-card audio,
+        .media-card video {
+            width: 100%;
+            border-radius: 14px;
+            background: #f0f4ff;
+        }
+
+        .media-card video {
+            max-height: 280px;
+            background: #1a1a2e;
+        }
+
+        .media-card audio {
+            height: 52px;
+        }
+
+        .media-card audio::-webkit-media-controls-panel {
+            background: #f8faff;
+        }
+
+        .media-tag {
+            display: inline-block;
+            background: #2563eb10;
+            color: #2563eb;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+            border: 1px solid #2563eb20;
+        }
+
+        /* ===== YOUTUBE SECTION ===== */
+        #youtube {
+            background: #ffffff;
+        }
+
+        .youtube-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .youtube-wrapper p {
+            text-align: center;
+            color: #555;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .video-container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 60px rgba(37, 99, 235, 0.15);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 20px;
+        }
+
+        .video-caption {
+            text-align: center;
+            margin-top: 18px;
+            color: #666;
+            font-size: 15px;
+        }
+
+        .video-caption strong {
+            color: #111;
+        }
+
+        /* ===== CONTACT ===== */
+        #contact {
+            background: #ffffff;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .contact-sub {
+            text-align: center;
+            font-size: 17px;
+            color: #555;
+            margin-bottom: 32px;
+        }
+
+        .contact-form {
+            max-width: 550px;
+            margin: 0 auto 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 14px 18px;
+            border: 1.5px solid #e0e7f5;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 15px;
+            transition: border 0.3s;
+            background: #fafcff;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+        }
+
+        .contact-form button:hover {
+            background: #1d4ed8;
+            transform: scale(1.02);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .contact-btn {
+            background: #f8faff;
+            padding: 12px 32px;
+            border-radius: 50px;
+            color: #222;
+            font-weight: 500;
+            transition: 0.3s;
+            border: 1.5px solid #e8edf9;
+            font-size: 15px;
+        }
+
+        .contact-btn:hover {
+            background: #2563eb;
+            color: #fff;
+            transform: translateY(-3px);
+            border-color: #2563eb;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.2);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #f8faff;
+            color: #888;
+            text-align: center;
+            padding: 28px 0;
+            font-size: 14px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            nav,
+            .hamburger,
+            .hero-buttons,
+            .project-links,
+            .cert-link,
+            .contact-form button,
+            .contact-btn,
+            .media-card audio,
+            .media-card video,
+            .video-container iframe {
+                display: none !important;
+            }
+
+            section {
+                page-break-after: always;
+                padding: 50px 0;
+            }
+
+            .avatar-placeholder {
+                border: 1px solid #ccc;
+                box-shadow: none;
+            }
+
+            .skill-bar-fill {
+                background: #222 !important;
+            }
+
+            .project-card,
+            .cert-card,
+            .testimonial-card,
+            .media-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+            body {
+                background: #fff;
+                color: #000;
+            }
+
+            .section-title::after {
+                background: #
+                            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .bio {
+                margin: 0 auto 24px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .avatar-placeholder {
+                width: 130px;
+                height: 130px;
+                margin: 0 auto;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: #ffffff;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                width: 100%;
+                padding: 24px 0;
+                text-align: center;
+                gap: 12px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+                border-bottom: 1px solid #eee;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .media-card video {
+                max-height: 200px;
+            }
+
+            .video-container {
+                border-radius: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#home" class="logo">Murtadha<span>Maikudi</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-home">🏠 Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#case-study-1">To‑Do Case</a></li>
+                <li><a href="#case-study-2">Weather Case</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#media">🎬 Media</a></li>
+                <li><a href="#youtube">▶️ YouTube</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger">☰</button>
+        </div>
+    </nav>
+
+    <!-- ===== PAGE 1: HOME ===== -->
+    <header id="home">
+        <div class="container hero">
+            <div class="hero-text">
+                <h1>Hi, I'm <span class="highlight">Murtadha Kabiru Maikudi</span></h1>
+                <p class="tagline">Beginner Developer, Problem Solver and a Curious Learner</p>
+                <p class="bio">
+                    I build clean, functional websites and love turning ideas into code.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">See My Work</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="avatar-placeholder">
+                    <img src="mk.jpg.jpg" alt="Murtadha Kabiru Maikudi" />
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== PAGE 2: ABOUT ===== -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>
+                    I'm a passionate beginner developer who recently started my coding journey.
+                    I'm in level 200 in Software engineering at Northwest University Kano.
+                    I love learning new technologies and building projects that solve real problems.
+                    Currently exploring <strong>HTML, CSS, JavaScript.</strong>
+                </p>
+                <p>
+                    When I'm not coding, I enjoy gaming, reading tech blogs, and contributing
+                    to open-source projects.
+                </p>
+                <p>
+                    <strong>Fun fact:</strong> I built my first website using only Notepad!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE 3: EDUCATION ===== -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="edu-item">
+                <p><strong>Northwest University Kano</strong><br />
+                B.Sc. Software Engineering – Level 200</p>
+                <p class="sub">Relevant coursework: Data Structures, Web Development, Database Systems, Object-Oriented Programming, Networking.</p>
+                <p class="sub">GPA: 3.8 / 4.0 (Dean's List)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE 4: SKILLS (with bars) ===== -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-row">
+                    <div class="label"><span>HTML5</span><span>90%</span></div>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%;"></div></div>
+                </div>
+                <div class="skill-row">
+                    <div class="label"><span>CSS3</span><span>80%</span></div>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%;"></div></div>
+                </div>
+                <div class="skill-row">
+                    <div class="label"><span>JavaScript</span><span>70%</span></div>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%;"></div></div>
+                </div>
+                <div class="skill-row">
+                    <div class="label"><span>Git / GitHub</span><span>65%</span></div>
+                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE 5: PROJECTS OVERVIEW ===== -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <p class="projects-intro">
+                Here are two projects I built to practice my front‑end skills. Click the case‑study links below to see the full process.
+            </p>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-icon">✅</div>
+                    <h3>To‑Do List App</h3>
+                    <p>A simple task manager where you can add, complete, and delete tasks.</p>
+                    <div class="tech-tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#case-study-1">Case Study</a>
+                        <a href="https://github.com/abdushshakurmisbahu9-cell" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-icon">☀️</div>
+                    <h3>Weather Dashboard</h3>
+                    <p>Displays current weather and 5‑day forecast using a public API.</p>
+                    <div class="tech-tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#case-study-2">Case Study</a>
+                        <a href="https://github.com/abdushshakurmisbahu9-cell" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE 6: CASE STUDY 1 (To-Do) ===== -->
+    <section id="case-study-1" class="case-study">
+        <div class="container">
+            <h2 class="section-title">Case Study: To‑Do List App</h2>
+            <h3>Problem</h3>
+            <p>Users need a quick, lightweight way to manage daily tasks without creating an account or installing a heavy app.</p>
+            <h3>Solution</h3>
+            <p>I built a single‑page to‑do app using vanilla JavaScript. Tasks are stored in the browser's <code>localStorage</code> so they persist after refresh.</p>
+            <h3>Challenges &amp; Learnings</h3>
+            <ul>
+                <li>Managing state – keeping the UI in sync with the task list.</li>
+                <li>Handling edit and delete actions without reloading the page.</li>
+                <li>Learned about event delegation and DOM manipulation.</li>
+            </ul>
+            <h3>Future Improvements</h3>
+            <ul>
+                <li>Add categories and due dates.</li>
+                <li>Drag‑and‑drop reordering.</li>
+                <li>Dark mode toggle.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ===== PAGE 7: CASE STUDY 2 (Weather) ===== -->
+    <section id="case-study-2" class="case-study">
+        <div class="container">
+            <h2 class="section-title">Case Study: Weather Dashboard</h2>
+            <h3>Problem</h3>
+            <p>People want to check weather conditions quickly – current temperature, humidity, and a 5‑day forecast – all in one glance.</p>
+            <h3>Solution</h3>
+            <p>I connected to the OpenWeatherMap API using <code>fetch()</code> and <code>async/await</code>. Users can search by city name and see live weather data.</p>
+            <h3>Challenges &amp; Learnings</h3>
+            <ul>
+                <li>Handling API errors (e.g., city not found).</li>
+                <li>Displaying a loading spinner while data fetches.</li>
+                <li>Learned about CORS, API keys, and environment variables.</li>
+            </ul>
+            <h3>Future Improvements</h3>
+            <ul>
+                <li>Add geolocation support.</li>
+                <li>Show air quality and UV index.</li>
+                <li>Save favorite cities.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ===== PAGE 8: CERTIFICATES ===== -->
+    <section id="certificates">
+        <div class="container">
+            <h2 class="section-title">Certificates</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <div class="cert-icon">📜</div>
+                    <h3>Responsive Web Design</h3>
+                    <p>FreeCodeCamp – HTML &amp; CSS, flexbox, grid, media queries, and accessibility.</p>
+                    <a href="https://www.freecodecamp.org/certification/fcc-dbfff3e6-ff3d-4801-8e1d-06a04915d8f8/responsive-web-design-v9"
+                       target="_blank" class="cert-link">View Certificate</a>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-icon">⚡</div>
+                    <h3>JavaScript Algorithms</h3>
+                    <p>FreeCodeCamp (in progress) – core JS, functions, arrays, objects, and basic data structures.</p>
+                    <a href="#" class="cert-link in-progress">In Progress</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE 9: TESTIMONIALS ===== -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Testimonials</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="quote">“Murtadha is a dedicated and curious learner. He approaches problems with a growth mindset and is never afraid to ask questions.”</p>
+                    <p class="author">— Dr. Amina Yusuf</p>
+                    <p class="role">Lecturer, Northwest University Kano</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">“Working with Murtadha on group projects is always smooth. He writes clean code and explains concepts well to the team.”</p>
+                    <p class="author">— Ibrahim Suleiman</p>
+                    <p class="role">Fellow Software Engineering Student</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE 10: AUDIO & VIDEO SECTION ===== -->
+    <section id="media">
+        <div class="container">
+            <h2 class="section-title">🎬 Audio &amp; Video</h2>
+            <p class="projects-intro">
+                Listen to my developer podcast or watch my coding tutorial videos.
+            </p>
+
+            <div class="media-grid">
+                <!-- Audio Card -->
+                <div class="media-card">
+                    <span class="media-tag">🎧 AUDIO</span>
+                    <h3>🎙️ Dev Talk: My Coding Journey</h3>
+                    <p class="media-desc">
+                        In this podcast episode, I share how I started coding, the challenges I faced,
+                        and my advice for beginner developers.
+                    </p>
+                    <audio controls>
+                        <source src="cristiano.mp3.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <p style="margin-top:12px; font-size:13px; color:#888;">
+                        ⏱️ Duration: 1:10 min · Recorded: March 2026
+                    </p>
+                </div>
+
+                <!-- Video Card -->
+                <div class="media-card">
+                    <span class="media-tag">🎥 VIDEO</span>
+                    <h3>📹 Building a To‑Do List App</h3>
+                    <p class="media-desc">
+                        Watch me build a functional To‑Do List app from scratch using HTML, CSS,
+                        and JavaScript — step by step.
+                    </p>
+                    <video controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='225'%3E%3Crect width='400' height='225' fill='%231a1a2e'/%3E%3Ctext x='200' y='115' font-family='sans-serif' font-size='22' fill='%23ffffff' text-anchor='middle'%3E🎬 Video Player%3C/text%3E%3C/svg%3E">
+                        <source src="cristiano.mp4.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p style="margin-top:12px; font-size:13px; color:#888;">
+                        ⏱️ Duration: 0:30 min · Uploaded: April 2026
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE 11: YOUTUBE SECTION (NEW) ===== -->
+    <section id="youtube">
+        <div class="container">
+            <h2 class="section-title">▶️ Featured YouTube Video</h2>
+            <div class="youtube-wrapper">
+                <p>
+                    Check out this inspiring video about <strong>Cristiano Ronaldo</strong> — 
+                    proving why he's the real GOAT! ⚽🐐
+                </p>
+                <div class="video-container">
+                    <iframe 
+                        width="560" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/UB1O30fR-EE?si=ucV4jlF3suN7XVkW" 
+                        title="Cristiano Ronaldo - The Real GOAT" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p class="video-caption">
+                    ⚽ <strong>Cristiano Ronaldo</strong> — Proving the world he is the <strong>REAL GOAT</strong> 🔥
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PAGE 12: CONTACT (with form) ===== -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <p class="contact-sub">
+                I'm on a learning journey — open to feedback, study groups, and small projects to grow together.
+            </p>
+
+            <form class="contact-form" action="#" method="post">
+                <input type="text" placeholder="Your Name" required />
+                <input type="email" placeholder="Your Email" required />
+                <textarea placeholder="Your Message…" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <div class="contact-links">
+                <a href="mailto: murtadhakabirumaikudi@gmail.com" class="contact-btn">📧 Email</a>
+                <a href="https://wa.me/2349114569774" target="_blank" class="contact-btn">💬 WhatsApp</a>
+                <a href="https://github.com/Maikudi11/Project-image- " target="_blank" class="contact-btn">🐙 GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            &copy; 2026 Murtadha Kabiru Maikudi. Built with ❤️ and lots of coffee.
+        </div>
+    </footer>
+
+    <!-- ===== HAMBURGER TOGGLE ===== -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked (on mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html
